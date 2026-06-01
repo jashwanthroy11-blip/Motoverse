@@ -5,6 +5,7 @@ import '../../screens/auth/forgot_password_screen.dart';
 import '../../screens/auth/login_screen.dart';
 import '../../screens/auth/signup_screen.dart';
 import '../../screens/bike_detail_screen.dart';
+import '../../screens/bike_types_screen.dart';
 import '../../screens/customization_screen.dart';
 
 class AppRoutes {
@@ -15,6 +16,7 @@ class AppRoutes {
   static const signup = '/signup';
   static const forgotPassword = '/forgot-password';
   static const bikeDetail = '/bike-detail';
+  static const bikeTypes = '/bike-types';
   static const customization = '/customize';
 }
 
@@ -29,10 +31,16 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
       case AppRoutes.bikeDetail:
         final args = settings.arguments as BikeDetailArguments;
-        return MaterialPageRoute(builder: (_) => BikeDetailScreen(arguments: args));
+        return MaterialPageRoute(
+          builder: (_) => BikeDetailScreen(arguments: args),
+        );
+      case AppRoutes.bikeTypes:
+        return MaterialPageRoute(builder: (_) => const BikeTypesScreen());
       case AppRoutes.customization:
         final args = settings.arguments as CustomizationScreenArguments;
-        return MaterialPageRoute(builder: (_) => CustomizationScreen(arguments: args));
+        return MaterialPageRoute(
+          builder: (_) => CustomizationScreen(arguments: args),
+        );
       default:
         return MaterialPageRoute(builder: (_) => const AuthGate());
     }
